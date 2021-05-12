@@ -125,7 +125,7 @@ canvas.addEventListener("click", (event) => {
 			ant.img = deadAntImage;
 			ant.velocity.x = 0;
 			ant.velocity.y = 0;
-			const splatSound = document.getElementById("splat");
+			const splatSound = new Audio("../assets/splat.mp3");
 			splatSound.volume = 0.2;
 			splatSound.play();
 			setTimeout(() => ants.splice(index, 1), 200);
