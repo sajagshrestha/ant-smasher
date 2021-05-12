@@ -32,12 +32,10 @@ function Ant(x, y, radius, xVelocity, yVelocity, mass = MASS) {
 		y: yVelocity,
 	};
 	this.img = antImage;
-
 	this.mass = mass;
+
 	//draw ant to canvas
 	this.drawAnt = () => {
-		// const img = document.getElementById("ant");
-
 		context.drawImage(this.img, this.x, this.y, this.radius, this.radius);
 	};
 
@@ -101,7 +99,6 @@ for (i = 0; i < NUMBER_OF_ANTS; i++) {
 			}
 		}
 	}
-
 	ants.push(new Ant(x, y, radius, xVelocity, yVelocity));
 }
 
@@ -120,7 +117,7 @@ canvas.addEventListener("click", (event) => {
 		) {
 			scoreValue++;
 			if (scoreValue === NUMBER_OF_ANTS) {
-				scoreContainer.innerHTML = "YOU MONSTER";
+				scoreContainer.innerHTML = "YOU MONSTER!";
 			}
 			score.innerHTML = scoreValue;
 			ant.img = deadAntImage;
