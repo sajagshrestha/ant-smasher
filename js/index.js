@@ -1,11 +1,9 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
-const antImage = document.getElementById("ant");
-const deadAntImage = document.getElementById("deadAnt");
+
 const scoreContainer = document.querySelector(".score-container");
 const score = document.getElementById("score");
-const splatSound = document.getElementById("splat");
-splatSound.volume = 0.2;
+
 canvas.height = 680;
 canvas.width = 1300;
 
@@ -31,7 +29,8 @@ function Ant(x, y, radius, xVelocity, yVelocity, mass = MASS) {
 		x: xVelocity,
 		y: yVelocity,
 	};
-	this.img = antImage;
+	this.img = new Image();
+	this.img.src = "https://sajagshrestha.github.io/ant-smasher/assets/ant.png";
 	this.mass = mass;
 
 	//draw ant to canvas
@@ -120,9 +119,14 @@ canvas.addEventListener("click", (event) => {
 				scoreContainer.innerHTML = "YOU MONSTER!";
 			}
 			score.innerHTML = scoreValue;
-			ant.img = deadAntImage;
+			ant.img.src =
+				"https://sajagshrestha.github.io/ant-smasher/assets/dead-ant.png";
 			ant.velocity.x = 0;
 			ant.velocity.y = 0;
+			const splatSound = new Audio(
+				"https://sajagshrestha.github.io/ant-smasher/assets/splat.mp3"
+			);
+			splatSound.volume = 0.2;
 			splatSound.play();
 			setTimeout(() => ants.splice(index, 1), 200);
 		}
