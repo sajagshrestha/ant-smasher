@@ -1,6 +1,7 @@
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
-
+const antImage = document.getElementById("ant");
+const deadAntImage = document.getElementById("deadAnt");
 const scoreContainer = document.querySelector(".score-container");
 const score = document.getElementById("score");
 
@@ -29,8 +30,7 @@ function Ant(x, y, radius, xVelocity, yVelocity, mass = MASS) {
 		x: xVelocity,
 		y: yVelocity,
 	};
-	this.img = new Image();
-	this.img.src = "../assets/ant.png";
+	this.img = antImage;
 
 	this.mass = mass;
 	//draw ant to canvas
@@ -122,11 +122,10 @@ canvas.addEventListener("click", (event) => {
 				scoreContainer.innerHTML = "YOU MONSTER";
 			}
 			score.innerHTML = scoreValue;
-			console.log(scoreValue);
-			ant.img.src = "../assets/dead-ant.png";
+			ant.img = deadAntImage;
 			ant.velocity.x = 0;
 			ant.velocity.y = 0;
-			const splatSound = new Audio("../assets/splat.mp3");
+			const splatSound = document.getElementById("splat");
 			splatSound.volume = 0.2;
 			splatSound.play();
 			setTimeout(() => ants.splice(index, 1), 200);
