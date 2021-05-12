@@ -4,7 +4,8 @@ const antImage = document.getElementById("ant");
 const deadAntImage = document.getElementById("deadAnt");
 const scoreContainer = document.querySelector(".score-container");
 const score = document.getElementById("score");
-
+const splatSound = document.getElementById("splat");
+splatSound.volume = 0.2;
 canvas.height = 680;
 canvas.width = 1300;
 
@@ -16,7 +17,7 @@ const MIN_ANT_SIZE = 30;
 const NUMBER_OF_ANTS = 35;
 const MASS = 1;
 
-//
+//a
 
 //ants array
 let ants = [];
@@ -125,8 +126,6 @@ canvas.addEventListener("click", (event) => {
 			ant.img = deadAntImage;
 			ant.velocity.x = 0;
 			ant.velocity.y = 0;
-			const splatSound = new Audio("../assets/splat.mp3");
-			splatSound.volume = 0.2;
 			splatSound.play();
 			setTimeout(() => ants.splice(index, 1), 200);
 		}
