@@ -15,7 +15,7 @@ const MIN_ANT_SIZE = 30;
 const NUMBER_OF_ANTS = 35;
 const MASS = 1;
 
-//
+//a
 
 //ants array
 let ants = [];
@@ -30,13 +30,11 @@ function Ant(x, y, radius, xVelocity, yVelocity, mass = MASS) {
 		y: yVelocity,
 	};
 	this.img = new Image();
-	this.img.src = "../assets/ant.png";
-
+	this.img.src = "https://sajagshrestha.github.io/ant-smasher/assets/ant.png";
 	this.mass = mass;
+
 	//draw ant to canvas
 	this.drawAnt = () => {
-		// const img = document.getElementById("ant");
-
 		context.drawImage(this.img, this.x, this.y, this.radius, this.radius);
 	};
 
@@ -100,7 +98,6 @@ for (i = 0; i < NUMBER_OF_ANTS; i++) {
 			}
 		}
 	}
-
 	ants.push(new Ant(x, y, radius, xVelocity, yVelocity));
 }
 
@@ -119,14 +116,16 @@ canvas.addEventListener("click", (event) => {
 		) {
 			scoreValue++;
 			if (scoreValue === NUMBER_OF_ANTS) {
-				scoreContainer.innerHTML = "YOU MONSTER";
+				scoreContainer.innerHTML = "YOU MONSTER!";
 			}
 			score.innerHTML = scoreValue;
-			console.log(scoreValue);
-			ant.img.src = "../assets/dead-ant.png";
+			ant.img.src =
+				"https://sajagshrestha.github.io/ant-smasher/assets/dead-ant.png";
 			ant.velocity.x = 0;
 			ant.velocity.y = 0;
-			const splatSound = new Audio("../assets/splat.mp3");
+			const splatSound = new Audio(
+				"https://sajagshrestha.github.io/ant-smasher/assets/splat.mp3"
+			);
 			splatSound.volume = 0.2;
 			splatSound.play();
 			setTimeout(() => ants.splice(index, 1), 200);
